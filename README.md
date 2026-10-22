@@ -1,22 +1,57 @@
-# detector de señales de transito
+# Real-Time Traffic Sign Recognition (CNN + OpenCV)
 
-Este proyecto tiene como objetivo desarrollar un sistema aautimatico de reconicimiento de señales de transito, utilizando redes neuronales convolucionales.
+> 🇪🇸 Reconocimiento de señales de tránsito en tiempo real con una red neuronal convolucional y la cámara web.
 
-## Imagenes de testeo y prueba 
+A convolutional neural network built with TensorFlow/Keras that classifies Colombian traffic signs. It runs live on a webcam feed with OpenCV.
 
-Para desarrollar este tipo de modelo, es necesario tener datasets para el entrenamiento [Test](Test) y para hacer pruebas [train](Train)
+## How it works
 
-## Creación del modelo 
+1. **Training** (`modelo.ipynb`, Google Colab)
+   - Images are resized to 160×160 RGB and normalized.
+   - A sequential CNN learns to classify 3 sign classes. It has 5 Conv2D + MaxPooling blocks with 25 % dropout, then a Dense(512) layer with 50 % dropout and a softmax output.
+   - Training uses the Adam optimizer and categorical cross-entropy for up to 32 epochs, with early stopping and model checkpointing.
+   - The trained model is saved as `modelo.h5`.
+2. **Detection** (`Detector.py`)
+   - OpenCV captures the webcam and draws a region of interest on screen.
+   - Press **`s`** to capture the region. The model classifies the sign and the label is drawn over the video.
+   - Predictions with less than **85 % confidence** are ignored.
+   - An automatic mode (classify every frame) is included in the code, commented out.
 
-Este [modelo](modelo.ipynb) es desarrollado en el lenguaje de Python debido a que tiene una gran cantidad de librerías que facilitan mucho el Machine Learning y el manejo de datos en general. Una vez se entrenan y prueban los datos se genera un [archivo](modelo.h5) que almacena los datos del modelo de aprendizaje generado.
+```
+webcam ──► ROI crop ──► resize 160×160 ──► CNN (Keras) ──► softmax ──► label (if p ≥ 0.85)
+```
 
-## Aplicacion para detectar
+## Project structure
 
-Este es el producto final que tiene la capacidad de reconocer señales de tránsito en tiempo real, tiene dos modos, uno automático en el que identifica en tiempo real todas las imágenes que captura, y otro modo en el que su reconocimiento se activa al presionar una tecla.
-En caso de que se quiera probar este [código](Detector.py) tener en cuenta lo siguiente:
--	Comprobar que el sistema cuenta con las librerías necesarias para correr el programa.
--	El dispositivo debe contar con una web cam.
--	La imagen a identificar se debe ubicar en el cuadro establecido en el ejecutable.
+| Path | Content |
+|---|---|
+| `modelo.ipynb` | Data loading, model design, training and evaluation |
+| `Detector.py` | Real-time detection app |
+| `Train/`, `Test/` | Image datasets used for training and testing |
 
+## Run it locally
 
+```bash
+pip install tensorflow opencv-python imutils numpy pandas matplotlib scipy
+python Detector.py   # needs a webcam and modelo.h5 in the same folder
+```
 
+Place the sign inside the blue rectangle and press `s`. Press `Esc` to quit.
+
+## Results and limitations
+
+- The model reached 100 % accuracy on the **training set** and correctly classified a 5-image hand-picked test batch.
+- No separate validation split was used, so the training accuracy overstates real-world performance.
+
+## Next steps
+
+- Add a proper train/validation/test split, a confusion matrix and per-class precision and recall.
+- Retrain on a public benchmark such as GTSRB to compare results.
+- Add a `requirements.txt` and a demo GIF.
+
+## Tech
+
+Python · TensorFlow/Keras · OpenCV · NumPy · scikit-learn (metrics) · Google Colab
+
+---
+Author: **Juan Diego Murillo** · [LinkedIn](https://www.linkedin.com/in/juandiegomurillo) · 2023
