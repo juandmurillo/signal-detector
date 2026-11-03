@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Temporary webcam capture written by Detector.py
+r/

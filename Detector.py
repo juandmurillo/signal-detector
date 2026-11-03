@@ -1,24 +1,17 @@
 import cv2
 import os
-import imutils
 import tensorflow
-import pandas as pd
 import numpy as np
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import load_model
 
-# Librerias para graficar 
-import matplotlib.pyplot as plt
-from scipy import interp
-from itertools import cycle 
-import itertools
 
 # Cargamos el modelo
 model = load_model("modelo.h5")
 print(model.summary())
 # Etiquetas de las senales 
-etiquetas = ['Calzada para automoviles', "prohibicion de estacionamiento", "Prohibido pasar sin detenerse","Velociadad maxima 5","Velocidad maxima 40"]
+etiquetas = ['Calzada para automoviles', "Prohibido estacionar", "Prohibido el paso"]
 
 
 # Capturar el video en tiempo real 

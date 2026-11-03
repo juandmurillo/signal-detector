@@ -1,0 +1,177 @@
+{
+  "all": {
+    "n": 302,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        68,
+        0,
+        0
+      ],
+      [
+        0,
+        176,
+        0
+      ],
+      [
+        0,
+        0,
+        58
+      ]
+    ],
+    "per_class": {
+      "Motor-vehicle lane": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 68.0
+      },
+      "No parking": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 176.0
+      },
+      "No entry": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 58.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 302.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 302.0
+      }
+    },
+    "threshold_0.85": {
+      "coverage": 0.9868,
+      "accuracy_when_accepted": 1.0
+    }
+  },
+  "unique": {
+    "n": 143,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        31,
+        0,
+        0
+      ],
+      [
+        0,
+        86,
+        0
+      ],
+      [
+        0,
+        0,
+        26
+      ]
+    ],
+    "per_class": {
+      "Motor-vehicle lane": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 31.0
+      },
+      "No parking": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 86.0
+      },
+      "No entry": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 26.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 143.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 143.0
+      }
+    },
+    "threshold_0.85": {
+      "coverage": 0.986,
+      "accuracy_when_accepted": 1.0
+    }
+  },
+  "unseen": {
+    "n": 133,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        30,
+        0,
+        0
+      ],
+      [
+        0,
+        78,
+        0
+      ],
+      [
+        0,
+        0,
+        25
+      ]
+    ],
+    "per_class": {
+      "Motor-vehicle lane": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 30.0
+      },
+      "No parking": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 78.0
+      },
+      "No entry": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 25.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 133.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 133.0
+      }
+    },
+    "threshold_0.85": {
+      "coverage": 0.985,
+      "accuracy_when_accepted": 1.0
+    }
+  },
+  "params": 439299
+}
